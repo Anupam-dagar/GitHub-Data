@@ -20,7 +20,14 @@ btn.addEventListener("click", function(){
 
 	ourRequest.onload = function(){
 		var ourData = JSON.parse(ourRequest.responseText);
+		if (ourData.message == "Not Found") {
+			alert("User not found, please enter a correct username");
+			window.location.reload();
+		}
+		else
+		{
 		renderHTML(ourData);
+	}
 	};
 	
 	ourRequest2.onload = function(){
